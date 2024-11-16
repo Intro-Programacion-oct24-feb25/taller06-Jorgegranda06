@@ -18,33 +18,50 @@ public class Problema01 {
      */
     public static void main(String[] args) {
         // TODO code application logic here
-         Scanner entrada = new Scanner(System.in);
-        entrada.useLocale(Locale.US);
-        
-        double numero1;
-        double numero2;
-        int tipooperacion;
+  Scanner entrada = new Scanner(System.in);
+        double num1;
+        double num2;
         double resultado;
-        System.out.println("Ingrese el tipo de operacion que desee utilizar:"
-                + "1. suma\n2. resta\n3. multiplicacion\n4. division5. modulo"
-                + "\n7. potencia\n");
-        tipooperacion=entrada.nextInt();
-        System.out.println("Ingrese el primer valor");
-        numero1= entrada.nextDouble();
+        resultado = 0;
+        String operacion;
+        System.out.println("Ingrese el numero 1:");
+        num1 = entrada.nextDouble();
+        System.out.println("Ingrese el numero 2:");
+        num2 = entrada.nextDouble();
+        entrada.nextLine();
+        System.out.println("Que operacion desea ejecutar:");
+        operacion = entrada.nextLine();
+        operacion = operacion.toLowerCase();
         
-        System.out.println("Ingrese el segundo valor");
-        numero2= entrada.nextDouble();
-        
-        if (numero1>=numero2) {
-            switch (tipooperacion) {
-                case 1:
-                    resultado= numero1+numero2;
-                    break;
-                default:
-                    throw new AssertionError();
+        if (num1 > num2){
+            switch(operacion){
+                case "suma":
+                    resultado = num1 + num2;
+                break;
+                case "resta":
+                    resultado = num1 - num2;
+                break;
+                case "multiplicacion":
+                    resultado = num1 * num2;
+                break;
+                case "division":
+                    resultado = num1/num2;
+                break;
+                case "modulo":
+                    resultado = num1 % num2;
+                break;
+                case "potencia":
+                    resultado = Math.pow(num1, num2);
+                break;   
+                
             }
-        } else {
+            System.out.printf("El resultado es: %.2f\n", resultado);
+        }else{
+            System.out.printf("El resultado no es posible\n");
         }
+            
     }
-    
 }
+    
+    
+
